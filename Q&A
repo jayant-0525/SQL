@@ -1,0 +1,8 @@
+```what is your name?
+
+
+Select *, 
+row_number() over (partition by student_batch order by student_marks desc) as rownum, 
+Rank() over (partition by student_batch order by student_marks desc) as rowrank ,
+Dense_Rank() over (partition by student_batch order by student_marks desc) as denserank,
+CAST(PERCENT_RANK() OVER (ORDER BY student_marks DESC) AS DECIMAL(4,2)) AS Percentrank 

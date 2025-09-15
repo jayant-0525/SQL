@@ -59,7 +59,58 @@ JOIN Salespeople s
     ON c.SNUM = s.SNUM
 ORDER BY c.CNAME;
 
+Q8. Find the names and numbers of all salespeople who had more than one customer?
+
+Select
+    S.SNUM,
+    S.SName,
+    Count(C.CNum) as Cust_Count
+From Salespeople S
+Inner Join Customers C
+ON S.SNUM = C.SNUM
+Having Count(C.CNum) >1;
+
+9. Count the orders of each of the salespeople and output the results in descending order.?
+Select 
+    S.Snum,
+    S.Sname,
+    Count(O.ONum) as Order_Counts
+From Salespeople S
+Inner Join Orders O
+On S.SNum = O.SNum
+Group by S.Snum,S.Sname
+Order by Order_Counts Desc;
+
+10. List the Customer table if and only if one or more of the customers in the Customer table are located in San Jose.?
+Select 
+    City,
+    CNum,
+    CName
+From Customers
+Where City = 'San Jose'
+
+11. Match salespeople to customers according to what city they lived in.?
+
+
+    
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ON S.SNum = O.SNum
 

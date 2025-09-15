@@ -9,8 +9,57 @@ Q3. Find all records in the Customer table with NULL values in the city column?
 Select * from Customers
 Where City is NULL;
 
+Q4. Find the largest order taken by each salesperson on each date?
+SELECT 
+    o.SNUM,
+    s.SNAME,
+    o.ODATE,
+    MAX(o.AMT) AS Largest_Order
+FROM Orders o
+JOIN Salespeople s 
+    ON o.SNUM = s.SNUM
+GROUP BY o.SNUM, s.SNAME, o.ODATE
+ORDER BY o.ODATE, o.SNUM;
 
-4. Find the largest order taken by each salesperson on each date. 
-5. Arrange the Orders table by descending customer number. 
-6. Find which salespeople currently have orders in the Orders table. 
-7. List names of all customers matched with the salespeople serving them. 
+Q5. Arrange the Orders table by descending customer number.?
+SELECT *
+FROM Orders
+ORDER BY CNUM DESC;
+
+Q6. Find which salespeople currently have orders in the Orders table?
+
+Select
+    S.SNum,
+    S.Sname,
+    Count(O.Onum) as Order_Count,
+    Count(O.CNum) as Cust_Count,
+    Sum(O.Amt) as SumofOrders
+From Salespeople S
+Left Join Orders O
+On S.SNum = O.SNum
+Group by 
+    S.SNum,
+    S.Sname
+Order by s.snum;
+
+OR
+
+SELECT DISTINCT s.SNUM, s.SNAME, s.CITY, s.COMM
+FROM Salespeople s
+JOIN Orders o 
+    ON s.SNUM = o.SNUM;
+
+Q7. List names of all customers matched with the salespeople serving them?
+
+SELECT 
+    c.CNAME AS Customer_Name,
+    s.SNAME AS Salesperson_Name
+FROM Customers c
+JOIN Salespeople s
+    ON c.SNUM = s.SNUM
+ORDER BY c.CNAME;
+
+
+
+
+

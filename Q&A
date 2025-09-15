@@ -1,4 +1,16 @@
 Q1. List all the columns of the Salespeople table.?
+Select * from Salespeople; (Use this query to run and populate all columns with Data)
 
-Select * from Salespeople (Use this query to run and populate all columns with Data)
+Q2. List all customers with a rating of 100?
+Select * from Customers
+Where Rating = 100;
 
+Q3. Find all records in the Customer table with NULL values in the city column?
+Select * from Customers
+Where City is NULL;
+
+
+4. Find the largest order taken by each salesperson on each date. 
+5. Arrange the Orders table by descending customer number. 
+6. Find which salespeople currently have orders in the Orders table. 
+7. List names of all customers matched with the salespeople serving them. 

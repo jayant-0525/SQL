@@ -91,26 +91,54 @@ Where City = 'San Jose'
 
 11. Match salespeople to customers according to what city they lived in.?
 
-
-    
-
-
-
-
-
-
-
-
+Select 
+S.SName as SalespersonName,
+C.CName as Cust_Name,
+S.City,
+C.City
+From Salespeople S
+Inner Join Customers C
+On S.City = C.City
 
 
+Q12. Find the largest order taken by each salesperson.?
 
-
-
-
-
-
-
-
-
+Select 
+S.SNum as Sales_Num,
+S.SName as Sales_Person,
+MAx(O.Amt) as Largest_Order_Amt
+From Salespeople S
+Inner Join Orders O
 ON S.SNum = O.SNum
+Group by S.SNum, S.SName
+Order by Largest_Order_Amt Desc;
+
+13. Find customers in San Jose who have a rating above 200.? 
+Select * From Customers
+Where City = 'San Jose' and Rating > 200;
+
+14. List the names and commissions of all salespeople in London.?
+Select 
+SName as SalesPerson_Name,
+Comm as Commission,
+City
+From Salespeople
+Where City = 'London'
+Order by Commission Desc;
+
+15. List all the orders of salesperson Motika from the Orders table.?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

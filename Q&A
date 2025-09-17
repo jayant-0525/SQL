@@ -127,14 +127,40 @@ Where City = 'London'
 Order by Commission Desc;
 
 15. List all the orders of salesperson Motika from the Orders table?
-
-
-
-
-
+Select 
+S.SNum as Sales_ID,
+O.SNum as OrderSales_ID,
+S.SName as SalesPerson,
+C.CNum as Cust_ID,
+C.CName as Cust_Name,
+O.ONum as OrderNum,
+O.Amt as Amount,
+From Salespeople S
+Inner Join Orders O
+On S.SNum = O.SNum
+Inner Join Customers C
+On S.CNum = C.CNum
+Having s.sname = 'Motika'
 
 16. Find all customers with orders on October 3. 
+Select 
+C.CNum,
+C.Cname,
+O.Onum,
+O.Amt,
+O.Odate
+From Customers C
+Inner Join Orders O
+ON C.Cnum = O.Cnum
+Where Month(O.Odate) = 10 and Day(O.ODate) = 3
+
 17. Give the sums of the amounts from the Orders table, grouped by date, eliminating all those 
+
+
+
+
+
+
 dates where the SUM was not at least 2000.00 above the MAX amount. 
 18. Select all orders that had amounts that were greater than at least one of the orders from 
 October 6. 

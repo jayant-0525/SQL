@@ -154,16 +154,24 @@ Inner Join Orders O
 ON C.Cnum = O.Cnum
 Where Month(O.Odate) = 10 and Day(O.ODate) = 3
 
-17. Give the sums of the amounts from the Orders table, grouped by date, eliminating all those 
+17. Give the sums of the amounts from the Orders table, grouped by date, eliminating all those dates where the SUM was not at least 2000.00 above the MAX amount.?
+
+SELECT 
+  ODate AS Order_Date,
+  SUM(Amt) AS Total_Amount,
+  MAX(Amt) AS Max_Amount
+FROM Orders
+GROUP BY ODate
+HAVING SUM(Amt) >= MAX(Amt) + 2000;
+
+
+18. Select all orders that had amounts that were greater than at least one of the orders from October 6.?
 
 
 
 
 
 
-dates where the SUM was not at least 2000.00 above the MAX amount. 
-18. Select all orders that had amounts that were greater than at least one of the orders from 
-October 6. 
 19. Write a query that uses the EXISTS operator to extract all salespeople who have customers 
 with a rating of 300. 
 20. Find all pairs of customers having the same rating. 
